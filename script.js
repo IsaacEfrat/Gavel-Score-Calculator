@@ -32,6 +32,8 @@ const gavels = document.querySelectorAll(".gavel")
 gavels.forEach(gavel => {
     const submitButton = gavel.querySelector(".submit")
     const score = gavel.querySelector(".score")
+    const gavelImg = gavel.querySelector(".gavel-img")
+    const scoreEmoji = gavel.querySelector(".emoji")
 
     submitButton.addEventListener("click", () => {
         const silver = parseInt(gavel.querySelector(".silver_i").value) || 0
@@ -62,9 +64,14 @@ gavels.forEach(gavel => {
         const emoji = getEmoji(totalScore)
 
         if (totalScore !== 0) {
-            score.textContent = `Score: ${totalScore} ${emoji}`
+            gavelImg.style.display = "none"
+            score.textContent = `Score: ${totalScore}`
+            scoreEmoji.textContent = emoji
+            
         } else {
+            gavelImg.style.display = "block"
             score.textContent = "Score: ???"
+            scoreEmoji.textContent = ""
         }
     })
 })
