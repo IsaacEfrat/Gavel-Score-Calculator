@@ -44,6 +44,7 @@ footer {
 .submit {
     width: 200px;
     margin-bottom: 10px;
+    color: var(--primary-color);
 }
 
 .gavel-container {
@@ -136,7 +137,7 @@ footer {
 }
 
 .chrome > span {
-    color: lightgray;
+    color: gray;
     animation: mutationPulse 3s infinite;
 }
 
@@ -168,7 +169,7 @@ footer {
     }
 
     50% {
-        opacity: 0.5;
+        opacity: 0.33;
     }
 }
 
