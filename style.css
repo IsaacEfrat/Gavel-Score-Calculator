@@ -141,7 +141,12 @@ footer {
     }
 
     .submit {
-        width: 100%
+        width: 100%;
+        min-height: 30px;
+    }
+
+    .gavel-container > li > input {
+        min-width: 50px;
     }
 
     #gavel-div {
