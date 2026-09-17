@@ -83,6 +83,11 @@ footer {
     flex: 0 0 200px;
 }
 
+.percent {
+    margin-left: 3px;
+    margin-top: 1px;
+}
+
 #add-slot {
     width: 60px;
     height: 60px;
@@ -109,57 +114,56 @@ footer {
     width: 100%;
 }
 
-
 #gavel-info {
     margin-top: -15px;
 }
 
 
 
-.silver > span {
+.silver > .color {
     color: silver;
 }
 
-.gold > span {
+.gold > .color {
     color: gold;
 }
 
-.corrupted > span {
+.corrupted > .color {
     color: limegreen;
 }
 
-.diamond > span {
+.diamond > .color {
     color: deepskyblue;
 }
 
-.gem > span {
+.gem > .color {
     color: magenta;
 }
 
-.chrome > span {
+.chrome > .color {
     color: gray;
     animation: mutationPulse 3s infinite;
 }
 
-.hologram > span {
+.hologram > .color {
     color: cyan;
     animation: mutationPulse 2.5s infinite;
 }
 
-.void > span {
+.void > .color {
     color: darkviolet;
     animation: void 3s infinite;
 }
 
-.secret > span {
+.secret > .color {
     color: red;
 }
 
-.rainbow > span {
+.rainbow > .color {
     animation: rainbow 3s infinite;
 }
 
-.onyx > span {
+.onyx > .color {
     color: black;
 }
 
