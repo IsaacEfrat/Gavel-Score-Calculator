@@ -1,0 +1,250 @@
+:root {
+    --primary-color: rgb(85, 85, 85);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+h1 {
+    margin-top: 0px;
+}
+
+body {
+    margin: 0;
+    padding: 15px;
+}
+
+p {
+    color: var(--primary-color);
+}
+
+h3 {
+    margin-bottom: -10px;
+}
+
+input {
+    width: 32px;
+}
+
+footer {
+    text-align: end;
+    color: var(--primary-color);
+}
+
+.score {
+    color: var(--primary-color);
+}
+
+.score-hr {
+    margin-top: 25px;
+}
+
+.submit {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.gavel-container {
+    outline: 1px dashed var(--primary-color);
+    border-radius: 12px;
+    padding: 10px;
+    width: 100%;
+}
+
+.gavel-container > li {
+    display: grid;
+    grid-template-columns: 100px 60px 0px;
+    margin-bottom: 5px;
+}
+
+.gavel-container > li input {
+    justify-self: end;
+}
+
+.hidden-slot {
+    display: none;
+}
+
+.add-slot {
+    width: 200px;
+    height: 500px;
+    flex: 0 0 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gavel {
+    width: 200px;
+    flex: 0 0 200px;
+}
+
+#add-slot {
+    width: 60px;
+    height: 60px;
+    border-radius: 30%;
+    border: 1px dashed var(--primary-color);
+    background: white;
+    color: var(--primary-color);
+    font-size: 35px;
+    cursor: pointer;
+}
+
+#gavel-div {
+    display: flex;
+    gap: 45px;
+    align-items: flex-start;
+    margin-top: -15px;
+}
+
+#gavel-info-container {
+    outline: 1px dashed var(--primary-color);
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+#gavel-info {
+    margin-top: -15px;
+}
+
+
+
+.silver > span {
+    color: silver;
+}
+
+.gold > span {
+    color: gold;
+}
+
+.corrupted > span {
+    color: limegreen;
+}
+
+.diamond > span {
+    color: deepskyblue;
+}
+
+.gem > span {
+    color: magenta;
+}
+
+.chrome > span {
+    color: lightgray;
+    animation: mutationPulse 3s infinite;
+}
+
+.hologram > span {
+    color: cyan;
+    animation: mutationPulse 2.5s infinite;
+}
+
+.void > span {
+    color: darkviolet;
+    animation: void 3s infinite;
+}
+
+.secret > span {
+    color: red;
+}
+
+.rainbow > span {
+    animation: rainbow 3s infinite;
+}
+
+.onyx > span {
+    color: black;
+}
+
+@keyframes mutationPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes void {
+    0%, 100% {
+        color: lightpink
+    }
+
+    15%, 90% {
+        color: pink
+    }
+
+    30%, 85% {
+        color: plum
+    }
+
+    45% {
+        color: purple
+    }
+
+    60% {
+        color: indigo
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        color: red;
+    }
+
+    16% {
+        color: orange;
+    }
+
+    33% {
+        color: yellow;
+    }
+
+    50% {
+        color: green;
+    }
+
+    66% {
+        color: blue;
+    }
+
+    83% {
+        color: indigo;
+    }
+
+    100% {
+        color: violet;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .gavel-container {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #gavel-div {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    #gavel-info-container {
+        max-width: 100%;
+    }
+}
