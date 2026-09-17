@@ -1,5 +1,6 @@
 :root {
     --primary-color: rgb(85, 85, 85);
+    --secondary-color: rgb(245, 245, 245);
 }
 
 * {
@@ -9,6 +10,7 @@
 body {
     margin: 0;
     padding: 15px;
+    background-color: var(--secondary-color)
 }
 
 p {
@@ -30,6 +32,7 @@ footer {
 
 .gavel-container > li > input {
     width: 35px;
+    background-color: var(--secondary-color);
 }
 
 .score {
@@ -92,7 +95,6 @@ footer {
     height: 60px;
     border-radius: 30%;
     border: 1px dashed var(--primary-color);
-    background: white;
     color: var(--primary-color);
     font-size: 35px;
     cursor: pointer;
