@@ -84,14 +84,17 @@ gavels.forEach(gavel => {
 
         const emoji = getEmoji(totalScore)
 
-        if (totalScore !== 0) {
+        if (totalScore >= 100000) {
+            score.textContent = "Not possible"
+        } 
+        else if (totalScore !== 0) {
             gavelImg.style.display = "none"
             score.textContent = `Score: ${totalScore}`
             scoreEmoji.textContent = emoji
             
         } else {
             gavelImg.style.display = "block"
-            score.textContent = "Score: ???"
+            score.textContent = "Score: ___"
             scoreEmoji.textContent = ""
         }
     })

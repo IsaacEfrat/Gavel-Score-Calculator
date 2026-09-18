@@ -163,6 +163,10 @@ footer {
 
     width: 100%;
     min-width: 0;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-logo {
@@ -213,6 +217,7 @@ footer {
     bottom: 0;
     background: #f4f4f5;
     transition: 0.4s;
+    border: 1px dashed var(--primary-color);
     border-radius: 30px;
 }
 
