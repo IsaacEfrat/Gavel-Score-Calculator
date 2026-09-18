@@ -13,18 +13,18 @@ const ONYX = 175
 
 // return emoji given score
 function getEmoji(totalScore) {
-    if (totalScore >= 4000) return "👑";
-    if (totalScore >= 3600) return "🏆";
-    if (totalScore >= 3200) return "⚡";
-    if (totalScore >= 2800) return "💎";
-    if (totalScore >= 2400) return "🌟";
-    if (totalScore >= 2000) return "⭐";
-    if (totalScore >= 1600) return "🔥";
-    if (totalScore >= 1200) return "😎";
-    if (totalScore >= 800) return "😊";
-    if (totalScore >= 500) return "🙂";
-    if (totalScore >= 200) return "😐";
-    return "😕";
+    if (totalScore >= 4000) return "👑"
+    if (totalScore >= 3600) return "🏆"
+    if (totalScore >= 3200) return "⚡"
+    if (totalScore >= 2800) return "💎"
+    if (totalScore >= 2400) return "🌟"
+    if (totalScore >= 2000) return "⭐"
+    if (totalScore >= 1600) return "🔥"
+    if (totalScore >= 1200) return "😎"
+    if (totalScore >= 800) return "😊"
+    if (totalScore >= 500) return "🙂"
+    if (totalScore >= 200) return "😐"
+    return "😕"
 }
 
 // handle slot add
@@ -107,4 +107,20 @@ gavels.forEach(gavel => {
 
         visibleSlots -= 1
     })
+})
+
+
+// handle theme switch
+themeSlider = document.querySelector(".slider-input")
+
+let darkMode = localStorage.getItem("darkMode") === "true"
+themeSlider.checked = darkMode
+
+if (darkMode) document.documentElement.classList.toggle('dark')
+
+themeSlider.addEventListener("change", () => {
+    darkMode = !darkMode
+
+    document.documentElement.classList.toggle('dark')
+    localStorage.setItem("darkMode", darkMode);
 })

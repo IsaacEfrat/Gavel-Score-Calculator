@@ -1,7 +1,20 @@
 :root {
     --primary-color: rgb(85, 85, 85);
-    --secondary-color: rgb(245, 245, 245);
-    --background-color: rgb(235, 235, 235);
+    --secondary-color: black;
+    --background-color: rgb(245, 245, 245);
+    --header-color: rgb(235, 235, 235);
+
+    --width-of-switch: 3.5em;
+    --height-of-switch: 2em;
+    --size-of-icon: 1.4em;
+    --slider-offset: 0.3em;
+}
+
+:root.dark {
+    --primary-color: rgb(210, 210, 210);
+    --secondary-color: white;
+    --background-color: rgb(45, 45, 45);
+    --header-color: rgb(25, 25, 25);
 }
 
 * {
@@ -10,7 +23,7 @@
 
 body {
     margin: 0;
-    background-color: var(--secondary-color)
+    background-color: var(--background-color)
 }
 
 p {
@@ -19,6 +32,7 @@ p {
 
 h3 {
     margin-bottom: -15px;
+    color: var(--secondary-color)
 }
 
 footer {
@@ -37,7 +51,7 @@ footer {
 
 .gavel-container > li > input {
     width: 35px;
-    background-color: var(--secondary-color);
+    background-color: var(--background-color);
 }
 
 .score {
@@ -52,6 +66,7 @@ footer {
     width: 200px;
     margin-bottom: 10px;
     color: var(--primary-color);
+    background-color: var(--background-color);
 }
 
 .gavel-container {
@@ -70,6 +85,7 @@ footer {
 
 .gavel-container > li input {
     justify-self: end;
+    color: var(--primary-color);
 }
 
 .hidden-slot {
@@ -94,6 +110,7 @@ footer {
 .percent {
     margin-left: 3px;
     margin-top: 1px;
+    color: var(--primary-color)
 }
 
 .score-container {
@@ -123,7 +140,7 @@ footer {
 .remove-slot {
     background-color: red;
     opacity: 0.2;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     position: absolute;
     right: -10px;
     top: -10px;
@@ -136,7 +153,7 @@ footer {
 }
 
 .site-header {
-    background-color: var(--background-color);
+    background-color: var(--header-color);
     padding: 8px 15px;
     border-bottom: 1px solid var(--primary-color);
 
@@ -148,7 +165,13 @@ footer {
     min-width: 0;
 }
 
-.site-header > img {
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.pinecone-logo {
     justify-self: end;
     width: 64px;
     height: 64px;
@@ -167,6 +190,58 @@ footer {
 }
 
 
+/* SLIDER CSS, source: https://github.com/Vetrivel-VP/html-css-web-ui-components-for-free/tree/main/Buttons/toggle-switch-button */
+.switch input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.switch {
+    display: block;
+    position: relative;
+    width: var(--width-of-switch);
+    height: var(--height-of-switch);
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f4f4f5;
+    transition: 0.4s;
+    border-radius: 30px;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: var(--size-of-icon, 1.4em);
+    width: var(--size-of-icon, 1.4em);
+    border-radius: 20px;
+    left: var(--slider-offset, 0.3em);
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(40deg, yellow, orange 70%);
+    transition: 0.4s;
+}
+
+.slider-input:checked + .slider {
+    background: #303136;
+}
+
+.slider-input:checked + .slider::before {
+    left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+    background: #303136;
+
+    /* chnage the value of the second inset in boxshadow to change the angle and direction of the moon */
+    box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+
+
 #add-slot {
     width: 60px;
     height: 60px;
@@ -175,6 +250,7 @@ footer {
     color: var(--primary-color);
     font-size: 35px;
     cursor: pointer;
+    background-color: var(--background-color);
 }
 
 #gavel-div {
@@ -190,6 +266,7 @@ footer {
     padding: 10px;
     margin-top: 10px;
     width: 100%;
+    color: var(--primary-color)
 }
 
 #gavel-info {
@@ -247,6 +324,10 @@ footer {
         min-width: 50px;
     }
 
+    .header-logo {
+        gap: 15px;
+    }
+
     #gavel-div {
         flex-direction: column;
         align-items: stretch;
@@ -261,7 +342,7 @@ footer {
 
 
 .silver > .color {
-    color: silver;
+    color: rgb(173, 173, 173);
 }
 
 .gold > .color {
@@ -296,7 +377,7 @@ footer {
 }
 
 .secret > .color {
-    color: darkred;
+    color: rgb(227, 0, 0);
     animation: secret 3s infinite
 }
 
@@ -307,7 +388,7 @@ footer {
 
 .onyx > .color {
     color: black;
-    animation: onyx 3s infinite;
+    animation: onyx 4s infinite;
 }
 
 @keyframes secret {
@@ -327,14 +408,14 @@ footer {
 @keyframes onyx {
     0%, 100% {
         text-shadow:
-            0 0 1px grey,
-            0 0 2px grey,
+            0 0 1px var(--primary-color),
+            0 0 2px var(--primary-color),
     }
 
     50% {
         text-shadow:
-            0 0 2px grey,
-            0 0 4px grey;
+            0 0 2px var(--primary-color),
+            0 0 4px var(--primary-color);
     }
 }
 
