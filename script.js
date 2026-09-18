@@ -11,6 +11,7 @@ const SECRET = 50
 const RAINBOW = 100
 const ONYX = 175
 
+// return emoji given score
 function getEmoji(totalScore) {
     if (totalScore >= 4000) return "👑";
     if (totalScore >= 3600) return "🏆";
@@ -31,7 +32,6 @@ const addSlot = document.querySelector(".add-slot")
 const addSlotButton = document.getElementById("add-slot")
 
 let visibleSlots = 1
-
 addSlotButton.addEventListener("click", () => {
     if (visibleSlots < gavels.length) {
         gavels[visibleSlots].classList.remove("hidden-slot")
