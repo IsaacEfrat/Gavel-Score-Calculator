@@ -139,8 +139,8 @@ footer {
 
 .remove-slot {
     background-color: red;
-    opacity: 0.3;
-    color: var(--secondary-color);
+    opacity: 0.2;
+    color: var(--primary-color);
     position: absolute;
     right: -10px;
     top: -10px;
