@@ -122,6 +122,8 @@ footer {
     position: absolute;
     right: -10px;
     top: -10px;
+    width: 24px;
+    height: 24px;
 }
 
 .remove-slot:hover {
@@ -177,6 +179,18 @@ footer {
     .gavel, .add-slot {
         width: 90%;
         flex: 0 0 auto;
+    }
+
+    .add-slot {
+        margin-top: -150px;
+        margin-bottom: -150px;
+    }
+
+    .remove-slot {
+        width: 32px;
+        height: 32px;
+        right: -15px;
+        top: -15px;
     }
 
     .submit {
