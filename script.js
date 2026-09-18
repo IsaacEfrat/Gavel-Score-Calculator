@@ -26,9 +26,30 @@ function getEmoji(totalScore) {
     return "😕";
 }
 
+// handle slot add
+const addSlot = document.querySelector(".add-slot")
+const addSlotButton = document.getElementById("add-slot")
 
+let visibleSlots = 1
+
+addSlotButton.addEventListener("click", () => {
+    if (visibleSlots < gavels.length) {
+        gavels[visibleSlots].classList.remove("hidden-slot")
+
+        previousRemoveSlot = gavels[visibleSlots - 1].querySelector(".remove-slot")
+        if (previousRemoveSlot) previousRemoveSlot.style.display = "none" 
+
+        visibleSlots++
+
+        if (visibleSlots === gavels.length) {
+            addSlot.style.display = "none"
+        }
+    }
+})
+
+
+// handle logic for each gavel calculator
 const gavels = document.querySelectorAll(".gavel")
-
 gavels.forEach(gavel => {
     const submitButton = gavel.querySelector(".submit")
     const score = gavel.querySelector(".score")
@@ -74,21 +95,16 @@ gavels.forEach(gavel => {
             scoreEmoji.textContent = ""
         }
     })
-})
 
+    const removeSlotButton = gavel.querySelector(".remove-slot")
+    
+    if (removeSlotButton) removeSlotButton.addEventListener("click", () => {
+        gavels[visibleSlots - 1].classList.add("hidden-slot")
+        addSlot.style.display = "flex"
 
-const addSlot = document.querySelector(".add-slot")
-const addSlotButton = document.getElementById("add-slot")
+        previousRemoveSlot = gavels[visibleSlots - 2].querySelector(".remove-slot")
+        if (previousRemoveSlot) previousRemoveSlot.style.display = "block" 
 
-let visibleSlots = 1
-
-addSlotButton.addEventListener("click", () => {
-    if (visibleSlots < gavels.length) {
-        gavels[visibleSlots].classList.remove("hidden-slot")
-        visibleSlots++
-
-        if (visibleSlots === gavels.length) {
-            addSlot.style.display = "none"
-        }
-    }
+        visibleSlots -= 1
+    })
 })

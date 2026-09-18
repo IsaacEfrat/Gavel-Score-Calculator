@@ -54,6 +54,7 @@ footer {
     border-radius: 12px;
     padding: 10px;
     width: 100%;
+    position: relative;
 }
 
 .gavel-container > li {
@@ -112,6 +113,19 @@ footer {
     width: 30px;
     height: 30px;
     margin-left: 15px;
+}
+
+.remove-slot {
+    background-color: red;
+    opacity: 0.2;
+    color: var(--secondary-color);
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.remove-slot:hover {
+    opacity: 0.5;
 }
 
 
