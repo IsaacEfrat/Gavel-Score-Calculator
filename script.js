@@ -1,4 +1,4 @@
-// Mutation Multipliers
+// mutation multiplier constants
 const SILVER = 2
 const GOLD = 4
 const CORRUPTED = 6
@@ -27,103 +27,111 @@ function getEmoji(totalScore) {
     return "😕"
 }
 
+
 // handle slot add
 const addSlot = document.querySelector(".add-slot")
 const addSlotButton = document.getElementById("add-slot")
-
 let visibleSlots = 1
-addSlotButton.addEventListener("click", () => {
-    if (visibleSlots < gavels.length) {
-        gavels[visibleSlots].classList.remove("hidden-slot")
 
-        previousRemoveSlot = gavels[visibleSlots - 1].querySelector(".remove-slot")
-        if (previousRemoveSlot) previousRemoveSlot.style.display = "none" 
+if (addSlotButton) {
+    addSlotButton.addEventListener("click", () => {
+        if (visibleSlots < gavels.length) {
+            gavels[visibleSlots].classList.remove("hidden-slot")
 
-        visibleSlots++
+            previousRemoveSlot = gavels[visibleSlots - 1].querySelector(".remove-slot")
+            if (previousRemoveSlot) previousRemoveSlot.style.display = "none" 
 
-        if (visibleSlots === gavels.length) {
-            addSlot.style.display = "none"
+            visibleSlots++
+
+            if (visibleSlots === gavels.length) {
+                addSlot.style.display = "none"
+            }
         }
-    }
-})
+    })
+}
 
 
 // handle logic for each gavel calculator
 const gavels = document.querySelectorAll(".gavel")
-gavels.forEach(gavel => {
-    const submitButton = gavel.querySelector(".submit")
-    const score = gavel.querySelector(".score")
-    const gavelImg = gavel.querySelector(".gavel-img")
-    const scoreEmoji = gavel.querySelector(".emoji")
 
-    submitButton.addEventListener("click", () => {
-        const silver = parseInt(gavel.querySelector(".silver_i").value) || 0
-        const gold = parseInt(gavel.querySelector(".gold_i").value) || 0
-        const corrupted = parseInt(gavel.querySelector(".corrupted_i").value) || 0
-        const diamond = parseInt(gavel.querySelector(".diamond_i").value) || 0
-        const gem = parseInt(gavel.querySelector(".gem_i").value) || 0
-        const chrome = parseInt(gavel.querySelector(".chrome_i").value) || 0
-        const hologram = parseInt(gavel.querySelector(".hologram_i").value) || 0
-        const voidMutation = parseInt(gavel.querySelector(".void_i").value) || 0
-        const secret = parseInt(gavel.querySelector(".secret_i").value) || 0
-        const rainbow = parseInt(gavel.querySelector(".rainbow_i").value) || 0
-        const onyx = parseInt(gavel.querySelector(".onyx_i").value) || 0
+if (gavels) {
+    gavels.forEach(gavel => {
+        const submitButton = gavel.querySelector(".submit")
+        const score = gavel.querySelector(".score")
+        const gavelImg = gavel.querySelector(".gavel-img")
+        const scoreEmoji = gavel.querySelector(".emoji")
 
-        const totalScore =
-            silver * SILVER +
-            gold * GOLD +
-            corrupted * CORRUPTED +
-            diamond * DIAMOND +
-            gem * GEM +
-            chrome * CHROME +
-            hologram * HOLOGRAM +
-            voidMutation * VOID +
-            secret * SECRET +
-            rainbow * RAINBOW +
-            onyx * ONYX
+        submitButton.addEventListener("click", () => {
+            const silver = parseInt(gavel.querySelector(".silver_i").value) || 0
+            const gold = parseInt(gavel.querySelector(".gold_i").value) || 0
+            const corrupted = parseInt(gavel.querySelector(".corrupted_i").value) || 0
+            const diamond = parseInt(gavel.querySelector(".diamond_i").value) || 0
+            const gem = parseInt(gavel.querySelector(".gem_i").value) || 0
+            const chrome = parseInt(gavel.querySelector(".chrome_i").value) || 0
+            const hologram = parseInt(gavel.querySelector(".hologram_i").value) || 0
+            const voidMutation = parseInt(gavel.querySelector(".void_i").value) || 0
+            const secret = parseInt(gavel.querySelector(".secret_i").value) || 0
+            const rainbow = parseInt(gavel.querySelector(".rainbow_i").value) || 0
+            const onyx = parseInt(gavel.querySelector(".onyx_i").value) || 0
 
-        const emoji = getEmoji(totalScore)
+            const totalScore =
+                silver * SILVER +
+                gold * GOLD +
+                corrupted * CORRUPTED +
+                diamond * DIAMOND +
+                gem * GEM +
+                chrome * CHROME +
+                hologram * HOLOGRAM +
+                voidMutation * VOID +
+                secret * SECRET +
+                rainbow * RAINBOW +
+                onyx * ONYX
 
-        if (totalScore >= 100000) {
-            score.textContent = "Not possible"
-        } 
-        else if (totalScore !== 0) {
-            gavelImg.style.display = "none"
-            score.textContent = `Score: ${totalScore}`
-            scoreEmoji.textContent = emoji
-            
-        } else {
-            gavelImg.style.display = "block"
-            score.textContent = "Score: ___"
-            scoreEmoji.textContent = ""
-        }
+            const emoji = getEmoji(totalScore)
+
+            if (totalScore >= 100000) {
+                score.textContent = "Not possible"
+            } 
+            else if (totalScore !== 0) {
+                gavelImg.style.display = "none"
+                score.textContent = `Score: ${totalScore}`
+                scoreEmoji.textContent = emoji
+                
+            } else {
+                gavelImg.style.display = "block"
+                score.textContent = "Score: ___"
+                scoreEmoji.textContent = ""
+            }
+        })
+
+        const removeSlotButton = gavel.querySelector(".remove-slot")
+        
+        if (removeSlotButton) removeSlotButton.addEventListener("click", () => {
+            gavels[visibleSlots - 1].classList.add("hidden-slot")
+            addSlot.style.display = "flex"
+
+            previousRemoveSlot = gavels[visibleSlots - 2].querySelector(".remove-slot")
+            if (previousRemoveSlot) previousRemoveSlot.style.display = "block" 
+
+            visibleSlots -= 1
+        })
     })
 
-    const removeSlotButton = gavel.querySelector(".remove-slot")
-    
-    if (removeSlotButton) removeSlotButton.addEventListener("click", () => {
-        gavels[visibleSlots - 1].classList.add("hidden-slot")
-        addSlot.style.display = "flex"
-
-        previousRemoveSlot = gavels[visibleSlots - 2].querySelector(".remove-slot")
-        if (previousRemoveSlot) previousRemoveSlot.style.display = "block" 
-
-        visibleSlots -= 1
-    })
-})
+}
 
 
 // handle theme switch
 themeSlider = document.querySelector(".slider-input")
 
 let darkMode = localStorage.getItem("darkMode") === "true"
-themeSlider.checked = darkMode
-
 if (darkMode) document.documentElement.classList.toggle('dark')
 
-themeSlider.addEventListener("change", () => {
-    darkMode = !darkMode
+if (themeSlider) {
+    themeSlider.checked = darkMode
+    themeSlider.addEventListener("change", () => {
+        darkMode = !darkMode
 
-    document.documentElement.classList.toggle('dark')
-    localStorage.setItem("darkMode", darkMode);
-})
+        document.documentElement.classList.toggle('dark')
+        localStorage.setItem("darkMode", darkMode);
+    })
+}
