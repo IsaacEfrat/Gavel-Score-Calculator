@@ -31,7 +31,7 @@ function getEmoji(totalScore) {
 // handle slot add
 const addSlot = document.querySelector(".add-slot")
 const addSlotButton = document.getElementById("add-slot")
-let visibleSlots = 1
+let visibleSlots = 3
 
 if (addSlotButton) {
     addSlotButton.addEventListener("click", () => {

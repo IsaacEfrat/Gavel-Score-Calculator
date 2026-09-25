@@ -42,6 +42,140 @@ footer {
     margin-top: 40px;
 }
 
+.hidden-remove {
+    display: none;
+}
+
+.bid-simulator {
+    width: 420px;
+    padding: 18px 20px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+    background: rgba(24, 27, 32, 0.94);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+
+    font-family: Arial, sans-serif;
+    color: white;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* CURRENT / NEXT */
+.bid-simulator > p {
+    margin: 0 0 14px;
+    text-align: center;
+
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    color: #aeaeae;
+    text-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000;
+}
+
+.bid-next-text {
+    color: #86c188
+}
+
+/* BID METER */
+.bid-bar {
+    position: relative;
+    width: 100%;
+    height: 34px;
+
+    overflow: hidden;
+
+    background: #17191d;
+    border: 3px solid #090a0c;
+
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.7),
+        0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* THE AREA YOU NEED TO HIT */
+.bid-zone {
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    left: 42%;
+    width: 25%;
+
+    background: #06cb55;
+
+    box-shadow:
+        0 0 8px rgba(95, 211, 95, 0.65),
+        inset 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Moving arrow can be added later */
+.bid-bar::after {
+    content: "";
+    position: absolute;
+
+    top: -2px;
+    bottom: -2px;
+    left: 25%;
+
+    width: 5px;
+
+    background: #ffffffd1;
+    border-radius: 2px;
+
+    box-shadow:
+        2px 0 0 rgba(0, 0, 0, 0.4);
+}
+
+/* BID BUTTON */
+.bid-button {
+    display: block;
+    align-self: center;
+    width: 90%;
+    height: 54px;
+    margin-top: 16px;
+
+    border: 1px solid #849789;
+
+    background-color: #17191d;
+
+    color: #86c188;
+
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    text-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000;
+
+    cursor: pointer;
+}
+
+.bid-button:hover {
+    filter: brightness(1.08);
+}
+
+.bid-button:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 1px 0 #8b5b08,
+        inset 0 2px 0 rgba(255, 255, 255, 0.25);
+}
+
 .header-link {
     text-decoration: none;
     display: inline-flex;
@@ -308,91 +442,6 @@ footer {
 
 
 
-@media (max-width: 500px) {
-    h1 {
-        font-size: 24px;
-    }
-
-    .header-navbar {
-        gap: 20px;
-    }
-
-    .site-nav {
-        position: absolute;
-        top: 10px;
-        right: 5px;
-    }
-
-    .nav-link {
-        padding-right: 10px;
-        padding-left: 0px;
-    }
-
-    .nav-split {
-        display: none;
-    }
-
-    .site-header h1 {
-        font-size: 28px;
-    }
-
-    .site-header p {
-        font-size: 16px;
-    }
-
-    .site-header > img {
-        width: 64px;
-        height: 64px;
-    }
-
-    .gavel-container {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .gavel, .add-slot {
-        width: 90%;
-        flex: 0 0 auto;
-    }
-
-    .add-slot {
-        height: 100px;
-        padding-bottom: 20px;
-    }
-
-    .remove-slot {
-        width: 32px;
-        height: 32px;
-        right: -15px;
-        top: -15px;
-    }
-
-    .submit {
-        width: 100%;
-        min-height: 30px;
-    }
-
-    .gavel-container > li > input {
-        min-width: 50px;
-    }
-
-    .header-logo {
-        gap: 15px;
-    }
-
-    #gavel-div {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-    }
-
-    #gavel-info-container {
-        max-width: 100%;
-    }
-}
-
-
-
 .silver > .color {
     color: rgb(173, 173, 173);
 }
@@ -530,5 +579,92 @@ footer {
 
     100% {
         color: #d291bc;
+    }
+}
+
+
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .header-navbar {
+        gap: 20px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+
+    .site-nav {
+        position: absolute;
+        bottom: 15px;
+        right: 5px;
+    }
+
+    .nav-link {
+        padding-right: 10px;
+        padding-left: 0px;
+    }
+
+    .nav-split {
+        display: none;
+    }
+
+    .site-header h1 {
+        font-size: 28px;
+    }
+
+    .site-header p {
+        font-size: 16px;
+    }
+
+    .site-header > img {
+        width: 64px;
+        height: 64px;
+    }
+
+    .gavel-container {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .gavel, .add-slot {
+        width: 90%;
+        flex: 0 0 auto;
+    }
+
+    .add-slot {
+        height: 100px;
+        padding-bottom: 20px;
+    }
+
+    .remove-slot {
+        width: 32px;
+        height: 32px;
+        right: -15px;
+        top: -15px;
+    }
+
+    .submit {
+        width: 100%;
+        min-height: 30px;
+    }
+
+    .gavel-container > li > input {
+        min-width: 50px;
+    }
+
+    .header-logo {
+        gap: 15px;
+    }
+
+    #gavel-div {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    #gavel-info-container {
+        max-width: 100%;
     }
 }
