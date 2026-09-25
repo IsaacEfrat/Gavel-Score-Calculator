@@ -270,8 +270,6 @@ footer {
 .slider-input:checked + .slider::before {
     left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
     background: #303136;
-
-    /* chnage the value of the second inset in boxshadow to change the angle and direction of the moon */
     box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
 }
 
