@@ -201,7 +201,7 @@ footer {
 .header-navbar {
     display: flex;
     align-items: center;
-    gap: 45px;
+    gap: 30px;
 }
 
 .pinecone-logo {
@@ -310,6 +310,10 @@ footer {
 @media (max-width: 500px) {
     h1 {
         font-size: 24px;
+    }
+
+    .header-navbar {
+        gap: 20px;
     }
 
     .site-nav {
